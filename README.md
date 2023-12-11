@@ -5,8 +5,9 @@ See the project in action here => https://youtu.be/TGjYiZt3Xzk
 
 
 ## Screenshots
-<img src="1.png" width="750">
-<img src="2.png" width="750">
+<p><img src="1.png" width="250">&emsp;&emsp;
+<img src="2.png" width="250"></p>
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
