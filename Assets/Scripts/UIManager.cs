@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     public GameObject RightButton;
 
     public TextMeshProUGUI completeText;
-    public TextMeshProUGUI infoText;
+    public Image infoText;
 
     private void Awake()
     {

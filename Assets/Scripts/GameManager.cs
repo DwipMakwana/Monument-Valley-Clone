@@ -55,8 +55,13 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+            RestartLevel();
         }
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
     }
 
     public void RotateMainPlatdform(int multiplier)
@@ -105,8 +110,13 @@ public class GameManager : MonoBehaviour
 
         SoundManager.instance.PlaySound(1);
 
-        UIManager.Instance.completeText.DOColor(new Color(1, 1, 1, 1), 1);        
-        DOTween.Sequence().SetDelay(3).Append(UIManager.Instance.infoText.DOColor(new Color(1, 1, 1, 1), 1));
+        UIManager.Instance.completeText.DOColor(new Color(1, 1, 1, 1), 1);
+        UIManager.Instance.infoText.gameObject.SetActive(true);
+
+        DOTween.Sequence().SetDelay(3).
+            Append(UIManager.Instance.infoText.GetComponent<Image>().DOColor(new Color(1, 1, 1, 1), 1)).
+            Append(UIManager.Instance.infoText.transform.GetChild(0).GetComponent<Image>().DOColor(new Color(1, 1, 1, 1), 1)).
+            Append(UIManager.Instance.infoText.transform.GetChild(0).GetChild(0).GetComponent<Image>().DOColor(new Color(0.1607843f, 0.4745098f, 0.4745098f, 1), 1));
 
         UIManager.Instance.LeftButton.GetComponent<Button>().interactable = false;
         UIManager.Instance.LeftButton.GetComponent<Image>().DOColor(new Color(1, 1, 1, 0), 1);
